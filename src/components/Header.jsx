@@ -1,15 +1,30 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { BiSearch } from "react-icons/bi";
 import { HiBell, HiChat } from "react-icons/hi";
 import { useSession, signIn, signOut } from "next-auth/react";
+import app from "../firebaseConfig";
+import { doc, getFirestore, setDoc } from "firebase/firestore";
 
 const Header = () => {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
+  const db = getFirestore(app);
 
-  console.log("data: ", session);
-  console.log("status: ", status);
+  const saveUserInfo = async () => {
+    if (session?.user) {
+      await setDoc(doc(db, "user", session.user.email), {
+        // session.user.email equals Document id
+        userName: session.user.name,
+        email: session.user.email,
+        userImage: session.user.image,
+      });
+    }
+  };
+
+  useEffect(() => {
+    saveUserInfo();
+  }, [session]);
 
   return (
     <header className="flex items-center p-2 gap-2">
