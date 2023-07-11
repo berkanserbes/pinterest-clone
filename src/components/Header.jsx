@@ -36,19 +36,22 @@ const Header = () => {
       </div>
       <HiBell size={30} className="cursor-pointer text-gray-500" />
       <HiChat size={30} className="cursor-pointer text-gray-500" />
-      {/* <Image
-        src="/profile.png"
-        alt="profile-logo"
-        width={50}
-        height={50}
-        className="hover:bg-gray-300 rounded-full cursor-pointer p-2"
-      /> */}
-      <button
-        className="bg-black rounded-full text-white py-2 px-4"
-        onClick={() => signIn()}
-      >
-        Login
-      </button>
+      {session?.user ? (
+        <Image
+          src={session.user.image}
+          alt="profile-logo"
+          width={50}
+          height={50}
+          className="hover:bg-gray-300 rounded-full cursor-pointer p-2"
+        />
+      ) : (
+        <button
+          className="bg-black rounded-full text-white py-2 px-4"
+          onClick={() => signIn()}
+        >
+          Login
+        </button>
+      )}
     </header>
   );
 };
