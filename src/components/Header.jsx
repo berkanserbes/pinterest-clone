@@ -3,8 +3,14 @@ import React from "react";
 import Image from "next/image";
 import { BiSearch } from "react-icons/bi";
 import { HiBell, HiChat } from "react-icons/hi";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Header = () => {
+  const { data: session, status } = useSession();
+
+  console.log("data: ", session);
+  console.log("status: ", status);
+
   return (
     <header className="flex items-center p-2 gap-2">
       <Image
@@ -30,13 +36,19 @@ const Header = () => {
       </div>
       <HiBell size={30} className="cursor-pointer text-gray-500" />
       <HiChat size={30} className="cursor-pointer text-gray-500" />
-      <Image
+      {/* <Image
         src="/profile.png"
         alt="profile-logo"
         width={50}
         height={50}
         className="hover:bg-gray-300 rounded-full cursor-pointer p-2"
-      />
+      /> */}
+      <button
+        className="bg-black rounded-full text-white py-2 px-4"
+        onClick={() => signIn()}
+      >
+        Login
+      </button>
     </header>
   );
 };
