@@ -24,6 +24,7 @@ const Header = () => {
 
   useEffect(() => {
     saveUserInfo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session]);
 
   return (
