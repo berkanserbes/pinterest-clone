@@ -7,7 +7,11 @@ const Profile = ({ params }) => {
   const [userInfo, setUserInfo] = useState();
   const db = getFirestore(app);
   console.log("params: ", params);
-  return <div>Profile</div>;
+  return (
+    <div>
+      <h1>{params?.userId}</h1>
+    </div>
+  );
 };
 
 export default Profile;

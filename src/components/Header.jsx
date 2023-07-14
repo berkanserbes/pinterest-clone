@@ -4,12 +4,15 @@ import Image from "next/image";
 import { BiSearch } from "react-icons/bi";
 import { HiBell, HiChat } from "react-icons/hi";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import app from "../firebaseConfig";
 import { doc, getFirestore, setDoc } from "firebase/firestore";
 
 const Header = () => {
   const { data: session } = useSession();
   const db = getFirestore(app);
+  const router = useRouter();
+  console.log(router);
 
   const saveUserInfo = async () => {
     if (session?.user) {
@@ -59,6 +62,7 @@ const Header = () => {
           width={50}
           height={50}
           className="hover:bg-gray-300 rounded-full cursor-pointer p-2"
+          onClick={() => router.push(`/${session.user.email}`)}
         />
       ) : (
         <button
