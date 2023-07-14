@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import app from "@/firebaseConfig";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
+import UserInfo from "@/components/UserInfo";
 
 const Profile = ({ params }) => {
   const [userInfo, setUserInfo] = useState();
@@ -24,9 +25,11 @@ const Profile = ({ params }) => {
 
   return (
     <div>
-      <h1>{params.userId.replace("%40", "@")}</h1>
-      <h2>{userInfo?.userName}</h2>
-      <h2>{userInfo?.userImage}</h2>
+      {userInfo && (
+        <div>
+          <UserInfo userInfo={userInfo} />
+        </div>
+      )}
     </div>
   );
 };
