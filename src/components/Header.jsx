@@ -12,7 +12,6 @@ const Header = () => {
   const { data: session } = useSession();
   const db = getFirestore(app);
   const router = useRouter();
-  console.log(router);
 
   const saveUserInfo = async () => {
     if (session?.user) {
