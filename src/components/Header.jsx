@@ -38,10 +38,16 @@ const Header = () => {
         height={60}
         className="hover:bg-gray-300 rounded-full cursor-pointer p-2"
       />
-      <button className="bg-black rounded-full text-white py-2 px-4">
+      <button
+        className="bg-black rounded-full text-white py-2 px-4"
+        onClick={() => router.push("/")}
+      >
         Home
       </button>
-      <button className="bg-black rounded-full text-white py-2 px-4">
+      <button
+        className="bg-black rounded-full text-white py-2 px-4"
+        onClick={() => router.push("/pin-builder")}
+      >
         Create
       </button>
       <div className="flex flex-1 items-center border p-1 rounded-lg">
