@@ -1,7 +1,16 @@
 import React from "react";
 import Image from "next/image";
+import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const UserInfo = ({ userInfo }) => {
+  const { data: session } = useSession();
+  const router = useRouter();
+  const logoutHandler = () => {
+    signOut();
+    router.push("/");
+  };
+
   return (
     <div className="flex flex-col items-center gap-5">
       <Image
@@ -16,6 +25,14 @@ const UserInfo = ({ userInfo }) => {
       <button className="bg-gray-200 p-3 rounded-full font-semibold">
         Share
       </button>
+      {session?.user.email === userInfo.email && (
+        <button
+          className="bg-gray-200 p-3 rounded-full font-semibold"
+          onClick={() => logoutHandler()}
+        >
+          Logout
+        </button>
+      )}
     </div>
   );
 };
