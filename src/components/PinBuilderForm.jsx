@@ -7,6 +7,7 @@ import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import app from "@/firebaseConfig";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
+import UploadImage from "./UploadImage";
 
 const PinBuilderForm = () => {
   // useSession hook
@@ -64,7 +65,7 @@ const PinBuilderForm = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-        {/* UploadImage component will be render */}
+        <UploadImage setFile={setFile} />
       </div>
     </div>
   );
