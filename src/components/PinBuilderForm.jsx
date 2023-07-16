@@ -8,6 +8,7 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import app from "@/firebaseConfig";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import UploadImage from "./UploadImage";
+import PinBuilderUserInfo from "./PinBuilderUserInfo";
 
 const PinBuilderForm = () => {
   // useSession hook
@@ -71,12 +72,14 @@ const PinBuilderForm = () => {
             <input
               type="text"
               placeholder="Add your title"
+              maxLength={100}
               className="outline-none font-bold w-full text-4xl border-b-2 border-gray-300 focus:border-blue-400 placeholder-gray-500 pb-2"
               onChange={(e) => setTitle(e.target.value)}
             />
             <h2 className="text-gray-400 text-xs">
               The first 40 characters are what usually show up in feeds
             </h2>
+            <PinBuilderUserInfo user={session?.user} />
           </div>
         </div>
       </div>
