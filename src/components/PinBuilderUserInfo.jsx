@@ -6,15 +6,15 @@ const PinBuilderUserInfo = ({ user }) => {
   return (
     <div className="pt-12 flex">
       <Image
-        src={user.image}
+        src={user?.image}
         alt="user image"
         width={50}
         height={50}
         className="rounded-full"
       />
       <div className="flex flex-col ps-3">
-        <h2 className="font-bold">{user.name}</h2>
-        <h2>{user.email}</h2>
+        <h2 className="font-bold">{user?.name}</h2>
+        <h2>{user?.email}</h2>
       </div>
     </div>
   );

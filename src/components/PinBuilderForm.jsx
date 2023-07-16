@@ -56,12 +56,21 @@ const PinBuilderForm = () => {
       });
   };
 
+  const savePin = () => {
+    uploadFile();
+  };
+
   return (
     <div className="bg-white p-16 rounded-xl">
       <div className="flex items-center justify-between">
         <BiDotsHorizontalRounded size={30} />
         <div className="flex justify-end">
-          <button className="text-white bg-red-500 p-2 rounded-lg">Save</button>
+          <button
+            className="text-white bg-red-500 p-2 rounded-lg"
+            onClick={() => savePin()}
+          >
+            Save
+          </button>
         </div>
       </div>
 
