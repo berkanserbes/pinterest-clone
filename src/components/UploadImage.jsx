@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from "react";
 import { GrUploadOption } from "react-icons/gr";
 
@@ -15,7 +14,7 @@ const UploadImage = ({ setFile }) => {
             <input
               type="file"
               className="opacity-0 absolute bottom-0 cursor-pointer"
-              accept="image/bmp,image/gif,image/jpeg,image/png,image/tiff,image/webp"
+              accept="image/bmp,image/gif,image/jpeg,image/jpg,image/png,image/tiff,image/webp"
               onChange={(e) => {
                 setSelectedFile(e.target.files[0]);
                 setFile(e.target.files[0]);

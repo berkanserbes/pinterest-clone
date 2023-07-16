@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
@@ -37,14 +36,14 @@ const PinBuilderForm = () => {
         getDownloadURL(storageRef).then(async (url) => {
           console.log(url);
           const postData = {
-            title: title,
-            description: description,
-            link: link,
+            id: postId,
+            title,
+            description,
+            link,
             image: url,
             userName: session.user.name,
             userImage: session.user.image,
             email: session.user.email,
-            id: postId,
           };
 
           await setDoc(doc(db, "pins", postId), postData).then((res) => {
