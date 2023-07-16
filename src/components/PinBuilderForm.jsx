@@ -66,6 +66,19 @@ const PinBuilderForm = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         <UploadImage setFile={setFile} />
+        <div className="col-span-2">
+          <div className="w-full p-3">
+            <input
+              type="text"
+              placeholder="Add your title"
+              className="outline-none font-bold w-full text-4xl border-b-2 border-gray-300 focus:border-blue-400 placeholder-gray-500 pb-2"
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <h2 className="text-gray-400 text-xs">
+              The first 40 characters are what usually show up in feeds
+            </h2>
+          </div>
+        </div>
       </div>
     </div>
   );
