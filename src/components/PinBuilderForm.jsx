@@ -80,6 +80,25 @@ const PinBuilderForm = () => {
               The first 40 characters are what usually show up in feeds
             </h2>
             <PinBuilderUserInfo user={session?.user} />
+            <input
+              type="text"
+              placeholder="Tell everyone what your Pin is about"
+              maxLength={500}
+              className="pt-9 outline-none w-full border-b-2 border-gray-300 focus:border-blue-400 focus:placeholder:opacity-50 placeholder-gray-500 indent-4 pb-4"
+              onChange={(e) => setDescription(e.target.value)}
+            />
+            <h2 className="text-gray-400 text-xs">
+              People will usually see the first 50 characters when they click on
+              your Pin
+            </h2>
+            <div className="mt-24">
+              <input
+                type="text"
+                placeholder="Add a destination link"
+                className="pt-8 outline-none w-full text-lg border-b-2 border-gray-300 focus:border-blue-400 placeholder-gray-500 pb-2"
+                onChange={(e) => setLink(e.target.value)}
+              />
+            </div>
           </div>
         </div>
       </div>
