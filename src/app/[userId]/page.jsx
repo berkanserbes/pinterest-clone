@@ -16,6 +16,7 @@ import PinList from "@/components/Pins/PinList";
 
 const Profile = ({ params }) => {
   const [userInfo, setUserInfo] = useState();
+  const [userPins, setUserPins] = useState([]);
   const db = getFirestore(app);
 
   useEffect(() => {
@@ -35,7 +36,7 @@ const Profile = ({ params }) => {
 
   useEffect(() => {
     if (userInfo) getUserPins();
-  }, [userInfo]);
+  }, []);
 
   const getUserPins = async () => {
     const q = query(
@@ -44,7 +45,7 @@ const Profile = ({ params }) => {
     );
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
+      setUserPins((prev) => [...prev, doc.data()]);
     });
   };
 
@@ -53,7 +54,7 @@ const Profile = ({ params }) => {
       {userInfo && (
         <div>
           <UserInfo userInfo={userInfo} />
-          <PinList />
+          <PinList userPins={userPins} />
         </div>
       )}
     </div>
