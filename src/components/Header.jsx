@@ -24,6 +24,9 @@ const Header = () => {
     }
   };
 
+  const createPinHandler = () =>
+    session?.user ? router.push("/pin-builder") : signIn();
+
   useEffect(() => {
     saveUserInfo();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -46,7 +49,7 @@ const Header = () => {
       </button>
       <button
         className="bg-black rounded-full text-white py-2 px-4"
-        onClick={() => router.push("/pin-builder")}
+        onClick={() => createPinHandler()}
       >
         Create
       </button>
