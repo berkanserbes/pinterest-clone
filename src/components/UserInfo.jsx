@@ -22,17 +22,19 @@ const UserInfo = ({ userInfo }) => {
       />
       <h2 className="font-semibold text-2xl">{userInfo.userName}</h2>
       <h2 className="text-gray-400">{userInfo.email}</h2>
-      <button className="bg-gray-200 p-3 rounded-full font-semibold">
-        Share
-      </button>
-      {session?.user.email === userInfo.email && (
-        <button
-          className="bg-gray-200 p-3 rounded-full font-semibold"
-          onClick={() => logoutHandler()}
-        >
-          Logout
+      <div className="flex gap-4">
+        <button className="bg-gray-200 p-3 rounded-full font-semibold">
+          Share
         </button>
-      )}
+        {session?.user.email === userInfo.email && (
+          <button
+            className="bg-gray-200 p-3 rounded-full font-semibold"
+            onClick={() => logoutHandler()}
+          >
+            Logout
+          </button>
+        )}
+      </div>
     </div>
   );
 };
