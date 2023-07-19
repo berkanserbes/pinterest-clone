@@ -34,20 +34,22 @@ const Profile = ({ params }) => {
     }
   };
 
-  useEffect(() => {
-    if (userInfo) getUserPins();
-  }, []);
-
   const getUserPins = async () => {
-    const q = query(
-      collection(db, "pins"),
-      where("email", "==", userInfo.email)
-    );
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      setUserPins((prev) => [...prev, doc.data()]);
-    });
+    if (userInfo) {
+      const q = query(
+        collection(db, "pins"),
+        where("email", "==", userInfo.email)
+      );
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        setUserPins((prev) => [...prev, doc.data()]);
+      });
+    }
   };
+
+  useEffect(() => {
+    getUserPins();
+  }, [userInfo]);
 
   return (
     <div>
