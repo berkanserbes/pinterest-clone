@@ -54,7 +54,7 @@ const Profile = ({ params }) => {
   return (
     <div>
       {userInfo && (
-        <div>
+        <div className="space-y-4">
           <UserInfo userInfo={userInfo} />
           <PinList userPins={userPins} />
         </div>

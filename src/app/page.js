@@ -22,7 +22,7 @@ export default function Home() {
   };
 
   return (
-    <div className="p-3 flex flex-wrap">
+    <div className="p-3 flex flex-wrap gap-2">
       {allPins?.map((item) => (
         <PinItem key={item.id} item={item} />
       ))}

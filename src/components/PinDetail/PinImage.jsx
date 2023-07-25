@@ -3,13 +3,13 @@ import Image from "next/image";
 
 const PinImage = ({ pinDetail }) => {
   return (
-    <div className="object-cover">
+    <div className="h-[80vh]">
       <Image
         src={pinDetail.image}
         alt={pinDetail.title}
-        width={1000}
-        height={1000}
-        className="rounded-2xl"
+        width={500}
+        height={500}
+        className="h-full object-contain w-full"
       />
     </div>
   );

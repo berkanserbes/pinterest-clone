@@ -8,9 +8,12 @@ const PinInfo = ({ pinDetail }) => {
     userImage: pinDetail.userImage,
   };
   return (
-    <div className="flex flex-col items-center gap-3">
-      <h2 className="font-bold text-2xl">{pinDetail.title}</h2>
-      <h2 className="">{pinDetail.description}</h2>
+    <div className="flex flex-col items-center justify-around gap-3 h-[80vh]">
+      <div className="w-full mx-auto text-center overflow-clip">
+        <h2 className="font-bold text-3xl">{pinDetail.title}</h2>
+        <h3 className="px-2 overflow-hidden">{pinDetail.description}</h3>
+      </div>
+
       <UserInfo userInfo={user} />
       {pinDetail?.link && (
         <button
