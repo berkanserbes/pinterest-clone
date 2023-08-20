@@ -38,4 +38,4 @@ Run server
 
 ![Google Auth-1](https://github.com/berkanserbes/pinterest-clone/blob/main/pinterest-clone-ss/google-auth.png?raw=true)
 
-![Google Auth-2](https://github.com/berkanserbes/pinterest-clone/blob/main/pinterest-clone-ss/google-auth.png?raw=true)
+![Google Auth-2](https://github.com/berkanserbes/pinterest-clone/blob/main/pinterest-clone-ss/google-auth2.png?raw=true)
