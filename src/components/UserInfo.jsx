@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { data } from "autoprefixer";
 
 const UserInfo = ({ userInfo }) => {
   const { data: session } = useSession();
@@ -12,7 +13,7 @@ const UserInfo = ({ userInfo }) => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-5">
+    <div className="flex flex-col items-center gap-5 text-center sm:text-left text-ellipsis">
       <Image
         src={userInfo.userImage}
         alt={`${userInfo.userName} profile photo`}
@@ -20,7 +21,7 @@ const UserInfo = ({ userInfo }) => {
         height={100}
         className="rounded-full"
       />
-      <h2 className="font-semibold text-2xl">{userInfo.userName}</h2>
+      <h2 className="font-semibold text-2xl ">{userInfo.userName}</h2>
       <h2 className="text-gray-400">{userInfo.email}</h2>
       <div className="flex gap-4">
         <button className="bg-gray-200 p-3 rounded-full font-semibold">
@@ -28,7 +29,9 @@ const UserInfo = ({ userInfo }) => {
         </button>
         {session?.user.email === userInfo.email && (
           <button
-            className="bg-gray-200 p-3 rounded-full font-semibold"
+            className={`bg-gray-200 p-3 rounded-full font-semibold ${
+              !session?.user && "hidden"
+            }`}
             onClick={logoutHandler}
           >
             Logout
