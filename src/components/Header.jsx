@@ -33,7 +33,7 @@ const Header = () => {
   }, [session]);
 
   return (
-    <header className="flex items-center p-2 gap-2">
+    <header className="flex justify-center items-center p-2 gap-1 sm:gap-2 max-w-screen">
       <Image
         src="/pinterest-logo.png"
         alt="pinterest-logo"
@@ -53,7 +53,7 @@ const Header = () => {
       >
         Create
       </button>
-      <div className="flex flex-1 items-center border p-1 rounded-lg">
+      <div className="hidden sm:flex flex-1 items-center border p-1 rounded-lg">
         <BiSearch size={25} className="cursor-pointer" />
         <input
           type="text"

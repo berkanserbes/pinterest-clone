@@ -60,7 +60,7 @@ const PinBuilderForm = () => {
   };
 
   return (
-    <div className="bg-white p-16 rounded-xl">
+    <div className="bg-white p-1 sm:p-16 rounded-xl">
       <div className="flex items-center justify-between">
         <BiDotsHorizontalRounded size={30} />
         <div className="flex justify-end">
@@ -92,7 +92,7 @@ const PinBuilderForm = () => {
               type="text"
               placeholder="Tell everyone what your Pin is about"
               maxLength={500}
-              className="pt-9 outline-none w-full border-b-2 border-gray-300 focus:border-blue-400 focus:placeholder:opacity-50 placeholder-gray-500 indent-4 pb-4"
+              className="pt-9 outline-none w-full border-b-2 border-gray-300 focus:border-blue-400 focus:placeholder:opacity-50 placeholder-gray-500 sm:indent-2 sm:pb-2"
               onChange={(e) => setDescription(e.target.value)}
             />
             <h2 className="text-gray-400 text-xs">

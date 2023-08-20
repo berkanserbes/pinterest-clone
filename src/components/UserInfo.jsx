@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 const UserInfo = ({ userInfo }) => {
   const { data: session } = useSession();
   const router = useRouter();
-  const logoutHandler = () => {
-    signOut();
+  const logoutHandler = async () => {
+    await signOut();
     router.push("/");
   };
 
@@ -29,7 +29,7 @@ const UserInfo = ({ userInfo }) => {
         {session?.user.email === userInfo.email && (
           <button
             className="bg-gray-200 p-3 rounded-full font-semibold"
-            onClick={() => logoutHandler()}
+            onClick={logoutHandler}
           >
             Logout
           </button>

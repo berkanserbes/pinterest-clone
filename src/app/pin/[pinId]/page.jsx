@@ -32,13 +32,13 @@ const Page = ({ params }) => {
   };
 
   return (
-    <>
+    <div>
       <HiArrowSmallLeft
         size={35}
         className="cursor-pointer font-bold"
         onClick={() => router.back()}
       />
-      <div className="flex justify-center">
+      <div className="flex justify-center items-center w-3/4 mx-auto">
         <div className="flex rounded-2xl items-center justify-center border border-slate-500 w-max h-[80vh]">
           <div className="w-1/2">
             <PinImage pinDetail={pinDetail} />
@@ -48,7 +48,7 @@ const Page = ({ params }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -5,7 +5,7 @@ const UploadImage = ({ setFile }) => {
   const [selectedFile, setSelectedFile] = useState();
 
   return (
-    <div className="h-[450px] bg-[#E9E9E9] rounded-lg">
+    <div className="h-[450px] md:h-[800px] bg-[#E9E9E9] rounded-lg mt-2">
       {!selectedFile && (
         <div className="flex flex-col items-center m-5 border-dashed border-2 h-[90%] border-neutral-400 justify-center">
           <div className="flex flex-col items-center gap-3 relative">
@@ -24,13 +24,13 @@ const UploadImage = ({ setFile }) => {
         </div>
       )}
       {selectedFile && (
-        <picture>
+        <picture className="w-fit">
           <img
             src={window.URL.createObjectURL(selectedFile)}
             alt="selected-image"
             width={500}
             height={800}
-            className="object-contain h-[90%] px-2"
+            className="object-cover h-[90%] px-2 py-1 mx-auto"
           />
         </picture>
       )}
