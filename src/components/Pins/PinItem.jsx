@@ -6,7 +6,7 @@ const PinItem = ({ item }) => {
   const router = useRouter();
 
   return (
-    <div className="h-fit text-center rounded-2xl group">
+    <div className="h-fit text-center rounded-2xl group hover:border-2 hover:border-slate-900">
       <div onClick={() => router.push(`/pin/${item.id}`)}>
         <Image
           src={item.image}

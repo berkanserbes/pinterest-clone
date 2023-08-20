@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { data } from "autoprefixer";
 
 const UserInfo = ({ userInfo }) => {
   const { data: session } = useSession();

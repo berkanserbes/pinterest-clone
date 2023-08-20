@@ -4,7 +4,7 @@ import Image from "next/image";
 const PinBuilderUserInfo = ({ user }) => {
   console.log(user);
   return (
-    <div className="pt-12 flex overflow-hidden">
+    <div className="pt-12 pb-2 flex text-ellipsis overflow-x-scroll sm:overflow-x-auto h-fit">
       <Image
         src={user?.image}
         alt="user image"

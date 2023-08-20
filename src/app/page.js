@@ -3,26 +3,25 @@ import React, { useEffect, useState } from "react";
 import { getFirestore, query, collection, getDocs } from "firebase/firestore";
 import app from "../firebaseConfig";
 import PinItem from "@/components/Pins/PinItem";
-import PinList from "@/components/Pins/PinList";
 
 export default function Home() {
   const db = getFirestore(app);
   const [allPins, setAllPins] = useState([]);
 
   useEffect(() => {
+    const getAllPins = async () => {
+      const q = query(collection(db, "pins"));
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        setAllPins((prev) => [...prev, doc.data()]);
+      });
+    };
+
     getAllPins();
   }, []);
 
-  const getAllPins = async () => {
-    const q = query(collection(db, "pins"));
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      setAllPins((prev) => [...prev, doc.data()]);
-    });
-  };
-
   return (
-    <div className="p-3 flex flex-wrap gap-2">
+    <div className="p-3 flex flex-wrap justify-center lg:justify-evenly  gap-4 sm:gap-2">
       {allPins?.map((item) => (
         <PinItem key={item.id} item={item} />
       ))}
